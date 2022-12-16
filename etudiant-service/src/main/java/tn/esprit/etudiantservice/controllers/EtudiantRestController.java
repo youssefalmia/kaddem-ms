@@ -2,9 +2,15 @@ package tn.esprit.etudiantservice.controllers;
 
 import lombok.*;
 import lombok.extern.slf4j.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.*;
+import org.springframework.web.servlet.support.*;
 import tn.esprit.etudiantservice.entities.*;
 import tn.esprit.etudiantservice.services.*;
+import tn.esprit.etudiantservice.services.utils.*;
 
 import java.util.*;
 
@@ -15,6 +21,11 @@ import java.util.*;
 public class EtudiantRestController {
 
     private final IEtudiantService etudiantService ;
+
+    private static final Logger logger = LoggerFactory.getLogger(EtudiantRestController.class);
+
+    @Autowired
+    private FileStorageService fileStorageService;
 
     @GetMapping("/all")
     public List<Etudiant> getAllEtudiant(){
@@ -61,5 +72,14 @@ public class EtudiantRestController {
         String fileName = "E:/2022_2023_ESPRIT_4TWIN8/SpringAngularProject/0_microservice/etudiant-service/src/main/resources/assets/tsypParticipant.xlsx";
         return etudiantService.addAllEtudiantFromSheet(fileName);
     }
+
+
+    @PostMapping("/uploadFromFile")
+    public List<Etudiant> uploadFile(@RequestParam("file") MultipartFile file) {
+        String fileName = fileStorageService.storeFile(file);
+        return etudiantService.addAllEtudiantFromSheet(fileName);
+    }
+
+
 
 }

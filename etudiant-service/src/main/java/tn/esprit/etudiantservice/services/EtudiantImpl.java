@@ -85,7 +85,10 @@ public class EtudiantImpl implements IEtudiantService {
         List<Etudiant> etudiants = ExcelApiImpl.getListEtudiantFromSheet(fileName);
         etudiants.forEach(etudiant -> {
             addEtudiant(etudiant);
-            log.info("Nouveau etudiant ajouter",etudiant);
+            SendEmail.sendEmail(etudiant.getEmail(),"Congratulation!","Welcome to your new university "+etudiant.getPrenom()
+                    +"\nWe hope you will enjoy your journey with us!" +
+                    "\n\n\n PS: This is just a test for our project validation");
+            log.info("New student named "+etudiant.getPrenom()+"added and an email has been sent to him");
         });
         return etudiants;
     }
