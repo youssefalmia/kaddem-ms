@@ -11,7 +11,7 @@ import java.util.*;
 /**
  * @author Jozef
  */
-@Data @NoArgsConstructor @AllArgsConstructor
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class Departement {
 
     private Integer idDepart ;

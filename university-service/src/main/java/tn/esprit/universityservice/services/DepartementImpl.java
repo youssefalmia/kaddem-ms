@@ -60,6 +60,7 @@ public class DepartementImpl implements IDepartementService {
     @Override
     public List<Etudiant> getDepartmentEtudiant(String nomDep) {
         Departement departement = retrieveDepartementByName(nomDep);
+
         return (List<Etudiant>) departement.getEtudiants();
     }
 

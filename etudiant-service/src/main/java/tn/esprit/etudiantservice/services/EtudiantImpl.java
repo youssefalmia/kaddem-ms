@@ -32,8 +32,14 @@ public class EtudiantImpl implements IEtudiantService {
     private final DepartementRestClientService departementRestClientService;
     @Override
     public List<Etudiant> retrieveAllEtudiants() {
-        log.debug("test");
-        return (List<Etudiant>) etudiantRepository.findAll();
+        List<Etudiant> etudiants = (List<Etudiant>) etudiantRepository.findAll();
+        etudiants.forEach(etudiant -> {
+            if (etudiant.getIdEtudiant() > 0){
+                etudiant.setDepartement(departementRestClientService.findById(etudiant.getDepartementId()));
+            }
+        });
+        //System.out.println(etudiants);
+        return etudiants;
     }
 
     @Scheduled(cron = "0 12 13 * * *")
@@ -43,13 +49,18 @@ public class EtudiantImpl implements IEtudiantService {
 
     @Override
     public Etudiant addEtudiant(Etudiant etudiant) {
-
+        Departement departement = null;
+        if( etudiant.getDepartement() != null ){
+            departement =departementRestClientService.addDepart(etudiant.getDepartement());
+        }
+        etudiant.setDepartement(departement);
+        etudiant.setDepartementId(departement.getIdDepart());
         return etudiantRepository.save(etudiant);
     }
 
     @Override
-    public Etudiant updateEtudiant(Etudiant e) {
-        return etudiantRepository.save(e);
+    public Etudiant updateEtudiant(Etudiant etudiant) {
+        return etudiantRepository.save(etudiant);
     }
 
     @Override
@@ -106,9 +117,15 @@ public class EtudiantImpl implements IEtudiantService {
 
     @Override
     public List<Etudiant> getEtudiantsByDepartement(Integer idDep) {
-
-        Departement dep = departementRestClientService.findById(idDep);
-        return departementRestClientService.findEudDep(dep.getNomDepart());
+        List<Etudiant> etudiants = etudiantRepository.getEtudiantsByDepartementId(idDep);
+        etudiants.forEach(etudiant -> {
+            if (etudiant.getIdEtudiant() > 0){
+                etudiant.setDepartement(departementRestClientService.findById(etudiant.getDepartementId()));
+            }
+        });
+        return etudiants;
+        //Departement dep = departementRestClientService.findById(idDep);
+        //return departementRestClientService.findEudDep(dep.getNomDepart());
 
     }
 }

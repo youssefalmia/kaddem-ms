@@ -16,4 +16,6 @@ public interface IEtudiantService {
             idEquipe);
     List<Etudiant> getEtudiantsByDepartement(Integer idDep);
     List<Etudiant> findEtudiantByDepartement(String nomDep);
+
+    void addAllEtudiantFromSheet();
 }

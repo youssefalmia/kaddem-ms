@@ -11,7 +11,7 @@ import java.util.*;
 /**
  * @author Jozef
  */
-@Data @AllArgsConstructor @NoArgsConstructor
+@Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class Etudiant {
 
     private Integer idEtudiant ;

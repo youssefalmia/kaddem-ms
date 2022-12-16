@@ -10,18 +10,20 @@ import java.util.*;
 /**
  * @author Jozef
  */
-@FeignClient(name = "university-service")
+@FeignClient(name = "university-service",path = "/kaddem/dep")
 public interface DepartementRestClientService {
-    @GetMapping("/dep/get/{idDep}")
+    @GetMapping("/get/{idDep}")
     public Departement findById(@PathVariable Integer idDep);
 
-    @GetMapping("/dep/getByNom/{nomDep}")
+    @GetMapping("/getByNom/{nomDep}")
     public Departement findByNomDep(@PathVariable String nomDep);
 
-    @GetMapping("/dep/all")
+    @GetMapping("/all")
     public List<Departement> findAll();
-
 
     @GetMapping("/getEtudByNom/{nomDep}")
     public List<Etudiant> findEudDep(@PathVariable String nomDep);
+
+    @PostMapping("/add")
+    public Departement addDepart(@RequestBody Departement dep);
 }

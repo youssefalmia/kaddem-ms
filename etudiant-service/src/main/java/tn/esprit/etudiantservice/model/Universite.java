@@ -9,7 +9,7 @@ import java.util.*;
 /**
  * @author Jozef
  */
-@Data @NoArgsConstructor @AllArgsConstructor
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class Universite {
 
     private Integer idUniv ;

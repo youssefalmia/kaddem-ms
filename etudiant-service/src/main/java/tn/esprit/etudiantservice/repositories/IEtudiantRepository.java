@@ -14,6 +14,8 @@ public interface IEtudiantRepository extends CrudRepository<Etudiant, Integer> {
 
     List<Etudiant> findByPrenomNotNull() ;
 
+    List<Etudiant> getEtudiantsByDepartementId(Integer departementId);
+
     @Query("select e from Etudiant e inner join e.contrats contrat where contrat.dateDebutContrat = ?1")
     List<Etudiant> findByContrat_DateDebutcontrat(Date dateDebutcontrat);
 

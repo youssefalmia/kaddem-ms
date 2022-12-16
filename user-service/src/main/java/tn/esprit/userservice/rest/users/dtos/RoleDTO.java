@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.*;
 
 @NoArgsConstructor
-@Data
+@Getter @Setter
 public class RoleDTO implements Serializable {
 
     private Long id;

@@ -12,13 +12,15 @@ import java.util.*;
 @Entity
 @Getter
 @Setter @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor @ToString
 public class Etudiant implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEtudiant ;
     private String prenom ;
     private String nom ;
+
+    private String email;
     @Enumerated(EnumType.STRING)
     private Option optionEtudiant ;
 

@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.*;
 
 @Entity
-@Data @AllArgsConstructor @NoArgsConstructor
+@Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class Contrat  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
