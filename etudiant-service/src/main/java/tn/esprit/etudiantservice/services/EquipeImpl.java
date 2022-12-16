@@ -39,7 +39,7 @@ public class EquipeImpl implements IEquipeService {
     }
 
     public Boolean isStudentContractMoreThanOneYear(Etudiant etudiant){
-        // test si les étudiant de l'équipes ( comparer la date début du contract avec la date actuelle)
+        // comparer la date début du contract avec la date actuelle
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         Date today1 = new Date();

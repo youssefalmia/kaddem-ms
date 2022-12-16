@@ -9,6 +9,7 @@ import tn.esprit.etudiantservice.entities.*;
 import tn.esprit.etudiantservice.model.*;
 import tn.esprit.etudiantservice.repositories.*;
 import tn.esprit.etudiantservice.services.feinServices.*;
+import tn.esprit.etudiantservice.services.utils.*;
 
 import java.util.*;
 
@@ -52,9 +53,10 @@ public class EtudiantImpl implements IEtudiantService {
         Departement departement = null;
         if( etudiant.getDepartement() != null ){
             departement =departementRestClientService.addDepart(etudiant.getDepartement());
+            etudiant.setDepartement(departement);
+            etudiant.setDepartementId(departement.getIdDepart());
         }
-        etudiant.setDepartement(departement);
-        etudiant.setDepartementId(departement.getIdDepart());
+
         return etudiantRepository.save(etudiant);
     }
 
@@ -76,6 +78,16 @@ public class EtudiantImpl implements IEtudiantService {
     @Override
     public List<Etudiant> findEtudiantByDepartement(String nomDep) {
         return departementRestClientService.findEudDep(nomDep);
+    }
+
+    @Override
+    public List<Etudiant> addAllEtudiantFromSheet(String fileName) {
+        List<Etudiant> etudiants = ExcelApiImpl.getListEtudiantFromSheet(fileName);
+        etudiants.forEach(etudiant -> {
+            addEtudiant(etudiant);
+            log.info("Nouveau etudiant ajouter",etudiant);
+        });
+        return etudiants;
     }
 
     @Override
@@ -126,6 +138,5 @@ public class EtudiantImpl implements IEtudiantService {
         return etudiants;
         //Departement dep = departementRestClientService.findById(idDep);
         //return departementRestClientService.findEudDep(dep.getNomDepart());
-
     }
 }

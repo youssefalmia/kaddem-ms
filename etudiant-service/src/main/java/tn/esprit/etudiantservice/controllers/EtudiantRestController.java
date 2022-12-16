@@ -1,6 +1,7 @@
 package tn.esprit.etudiantservice.controllers;
 
 import lombok.*;
+import lombok.extern.slf4j.*;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.etudiantservice.entities.*;
 import tn.esprit.etudiantservice.services.*;
@@ -10,6 +11,7 @@ import java.util.*;
 @RestController
 @RequestMapping("/etudiant")
 @RequiredArgsConstructor
+@Slf4j
 public class EtudiantRestController {
 
     private final IEtudiantService etudiantService ;
@@ -53,6 +55,11 @@ public class EtudiantRestController {
                                          @PathVariable("idContrat") Integer idContrat,
                                          @PathVariable("idEquipe") Integer idEquipe){
         etudiantService.addAndAssignEtudiantToEquipeAndContract(E,idContrat,idEquipe);
+    }
+    @PostMapping("/add/all/fromSheet")
+    public List<Etudiant> addAllEtudiantFromSheet(){
+        String fileName = "E:/2022_2023_ESPRIT_4TWIN8/SpringAngularProject/0_microservice/etudiant-service/src/main/resources/assets/tsypParticipant.xlsx";
+        return etudiantService.addAllEtudiantFromSheet(fileName);
     }
 
 }
