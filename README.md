@@ -26,9 +26,9 @@ Follow these steps to set up and run the application:
   ```bash
   consul agent -server -bootstrap-expect=1 -data-dir=consul-data -ui -bind=192.168.100.44
   ```
-  ![Consul folder](https://raw.githubusercontent.com/youssefalmia/blockchain-dapp-cs-challenge/main/ProjectRelatedPics/Rootroot.png)
+  ![Consul folder](https://github.com/youssefalmia/kaddem-ms/blob/main/readme-images/consul1.png)
 
-  ![CMD command](https://raw.githubusercontent.com/youssefalmia/blockchain-dapp-cs-challenge/main/ProjectRelatedPics/Rootroot.png)
+  ![CMD command](https://github.com/youssefalmia/kaddem-ms/blob/main/readme-images/consul2.png)
 
 3. Access the Consul service at: http://localhost:8500/ui/dc1/services  
 
@@ -40,7 +40,7 @@ Follow these steps to set up and run the application:
 
 3. Since we are running all of the services on our machine, open `etudiant-service.properties` and `university-service.properties` files, update your database credentials or configuration settings as needed. Here's a picture if you didn't know how to:
 
-  ![Database Config](https://raw.githubusercontent.com/youssefalmia/blockchain-dapp-cs-challenge/main/ProjectRelatedPics/Rootroot.png)
+  ![Database Config](https://github.com/youssefalmia/kaddem-ms/blob/main/readme-images/db-config.png)
 
 4. now start the project in this order:
   4.1. `GatewayServiceApplication`
@@ -49,7 +49,7 @@ Follow these steps to set up and run the application:
   4.4. `UniversityServiceApplication`
 Refer to the GIF for guidance.
 
-  ![Starting the microservices GIF](https://github.com/youssefalmia/blockchain-dapp-cs-challenge/blob/main/ProjectRelatedPics/BlockchainTrackingApp.gif)
+  ![Starting the microservices GIF](https://github.com/youssefalmia/kaddem-ms/blob/main/readme-images/lunchingGIF.gif)
 
 
 ### Step III - Testing the Project
@@ -61,7 +61,7 @@ Examples of Microservices Excellence:
 
 Experience the dynamic capabilities of microservices in action. Even if the `student-service` and `university-service` are separate, inserting a student with a non-existing department adds the department to the database.
 
-  ![Adding Department from Student MS](https://github.com/youssefalmia/student/blob/main/BlockchainTrackingApp.gif)
+  ![Adding Department from Student MS](https://github.com/youssefalmia/kaddem-ms/blob/main/readme-images/postmanGIF.gif)
 
 ### Contributing
 Contributions to the project are welcome. Feel free to submit issues and pull requests.
