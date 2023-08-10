@@ -8,15 +8,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="config-service" />
-        <module name="user-service" />
-        <module name="university-service" />
         <module name="gateway-service" />
         <module name="etudiant-service" />
+        <module name="eureka-discovery-client" />
+        <module name="eureka-discovery-service" />
+        <module name="university-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="config-service" target="1.8" />
       <module name="etudiant-service" target="1.8" />
+      <module name="eureka-discovery-client" target="1.8" />
+      <module name="eureka-discovery-service" target="17" />
+      <module name="eureka-server" target="1.8" />
       <module name="gateway-service" target="1.8" />
       <module name="university-service" target="1.8" />
       <module name="user-service" target="1.8" />
@@ -26,6 +30,9 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="config-service" options="-parameters" />
       <module name="etudiant-service" options="-parameters" />
+      <module name="eureka-discovery-client" options="-parameters" />
+      <module name="eureka-discovery-service" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
       <module name="university-service" options="-parameters" />
       <module name="user-service" options="-parameters" />

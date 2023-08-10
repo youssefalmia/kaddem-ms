@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "ec80ff34-24bb-4186-b108-33011a30b808",
+		"name": "[TWIN-PROJECT] MS-KADDEM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "MS-Etudiant",
+			"item": [
+				{
+					"name": "Etudiant",
+					"item": [
+						{
+							"name": "addEtudiant",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9999/etudiant-service/kaddem/etudiant",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9999",
+									"path": [
+										"etudiant-service",
+										"kaddem",
+										"etudiant"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getEtudiant",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": null
+							},
+							"response": []
+						},
+						{
+							"name": "updateEtudiant",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": null
+							},
+							"response": []
+						},
+						{
+							"name": "GetEtudiantsByDepartement",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": null
+							},
+							"response": []
+						},
+						{
+							"name": "UploadEtudiantFromSheetToDatabase",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": null
+							},
+							"response": []
+						},
+						{
+							"name": "AddMultipleFromFile",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/E:/2022_2023_ESPRIT_4TWIN8/SpringAngularProject/0_microservice/etudiant-service/src/main/resources/assets/tsypParticipant.xlsx"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:9999/etudiant-service/kaddem/etudiant/uploadFromFile",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9999",
+									"path": [
+										"etudiant-service",
+										"kaddem",
+										"etudiant",
+										"uploadFromFile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "MS-University",
+			"item": [
+				{
+					"name": "Departement",
+					"item": [
+						{
+							"name": "AddDepartement",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nomDepart\": \"JAW\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9999/university-service/kaddem/dep/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9999",
+									"path": [
+										"university-service",
+										"kaddem",
+										"dep",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetDepartements",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": null
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
